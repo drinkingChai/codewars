@@ -1,0 +1,1 @@
+Create a function add(n) which returns a function that always adds n to any number
