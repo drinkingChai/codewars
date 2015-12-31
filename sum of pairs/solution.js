@@ -1,18 +1,18 @@
-var sum_pairs=function(ints, s){
+var sum_pairs=function(ints, s) {
     //your code here
     var return_array = undefined;
     for (var i = 0; i < ints.length; i++) {
-    	j = s - ints[i];	//j is the number to seek to complete s
+    	diff_index = s - ints[i];	//diff_index is the number to seek to complete s
     	sliced = ints.slice(i + 1, ints.length);	//seek through the rest of the array
-    	if (sliced.indexOf(j) != -1) {
-    		//if j is found and the return_array exists,
+    	if (sliced.indexOf(diff_index) != -1) {
+    		//if diff_index is found and the return_array exists,
     		//check it's second index to see if it is less
     		//if so, update the array
     		//otherwise if the array is undefined, update it
-    		if (return_array && sliced.indexOf(j) + i + 1 < return_array[1]) {
-    			return_array = [i, sliced.indexOf(j) + i + 1];
+    		if (return_array && sliced.indexOf(diff_index) + i + 1 < return_array[1]) {
+    			return_array = [i, sliced.indexOf(diff_index) + i + 1];
     		} else {
-    			return_array = return_array || [i, sliced.indexOf(j) + i + 1];
+    			return_array = return_array || [i, sliced.indexOf(diff_index) + i + 1];
     		}
     	}
     }
