@@ -1,10 +1,17 @@
+/*
+Given two numbers x and n, calculate the nth root of x.
+
+This means that being r = result, r^n = x; Examples
+
+root(4, 2);   // 2 (the square root of 4 is 2 , 2^2 = 4);
+root(8, 3);   // 2 (the cube root of 8 is 2   , 2^3 = 8);
+root(256, 4); // 4 (the 4th root of 256 is 4  , 4^4 = 256);
+root(9, 2);   // 3 (the square root of 9 is 3 , 3^2 = 9)
+Expect inputs greater than 1 10^19
+*/
+
 function root(x, n) {
   // TODO: Return nth root of x
-  var r = 1;
-  while (true) {
-    if (Math.pow(r, n) === x) {
-      return r;
-    }
-    r++;
-  }
+  //Math: x^1/n = root; e.g. 4^1/2 = 2.
+  return Math.pow(x, 1/n);
 }
