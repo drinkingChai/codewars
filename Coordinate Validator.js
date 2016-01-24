@@ -26,3 +26,6 @@ N23.43345, E32.6457
 0, 1,2
 0.342q0832, 1.2324
 */
+function isValidCoordinates(coordinates){
+  return true; // do your thing!
+}
