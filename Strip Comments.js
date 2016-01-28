@@ -21,6 +21,5 @@ var result = solution("apples, pears # and bananas\ngrapes\nbananas !apples", ["
 function solution(input, markers){
   var lines = input.split('\n');
   lines.map(function(n) {
-  	/*no change*/
   });
 }
