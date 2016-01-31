@@ -41,3 +41,4 @@ var str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum s
 var len = 100;
 
 justify(str, len);
+/* no change */
