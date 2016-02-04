@@ -47,30 +47,34 @@ function mix(s1, s2) {
   			obj[n] = n;
   		}
   	}
+
+    for (var k in obj) {
+      if (obj[k].length == 1) {
+        delete obj[k];
+      }
+    }
   	return obj;
   }
 
   function union(o1, o2) {
   	var final_o = {};
-  	for (var k in o1) {
-  		if (o2.hasOwnProperty(o1[k])) {
-  			if (o1[k].length > o2[k].length) {
-  				final_o[o1[k]] = o1[k];
-  			} else if (o1[k].length == 1) {
+    for (var k in o1) {
+      final_o[o1[k]] = 1;
+    }
 
-  			} else {
-  				final_o[o1[k]] = o2[k];
-  			}
-  		} else {
-  			final_o[o1[k]] = o1[k];
-  		}
+  	for (var k in o2) {
+      if (final_o.hasOwnProperty(k) && final_o[k].length < o2[k].length) {
+        final_o[o2[k]] = 2;
+      } else if (!final_o.hasOwnProperty(k)) {
+        final_o[o2[k]] = 2;
+      }
   	}
   	return final_o;
   }
 
   var s1_letters = findLetters(s1);
   var s2_letters = findLetters(s2);
-  var final_o = s1.length > s2.length ? union(s1_letters, s2_letters) : union(s2_letters, s1_letters);
+  var final_o = union(, );
 
   console.log(final_o);
 }
