@@ -33,6 +33,7 @@ mix(s1, s2) --> "=:aaaaaa/2:eeeee/=:fffff/1:tt/2:rr/=:hh"
 */
 function mix(s1, s2) {
   // your code
+  /*redesign*/
   var lowercase = "abcdefghijklmnopqrstuvwxyz"
 
   function findLetters(s) {
