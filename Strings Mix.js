@@ -33,26 +33,56 @@ mix(s1, s2) --> "=:aaaaaa/2:eeeee/=:fffff/1:tt/2:rr/=:hh"
 */
 function mix(s1, s2) {
   // your code
-  /*redesign*/
   var lowercase = "abcdefghijklmnopqrstuvwxyz"
 
   function findLetters(s) {
-  	var obj = {};
-  	var s_split = s.split("");
-  	for (var i = 0; i < s_split.length; i++) {
-  		var n = s_split[i];
-  		if (lowercase.indexOf(n) == -1) continue;
-  		if (n in obj) {
-  			obj[n] += n;
-  		} else {
-  			obj[n] = n;
-  		}
-  	}
-  	return obj;
+    var obj = {};
+    var s_split = s.split("");
+    for (var i = 0; i < s_split.length; i++) {
+      var n = s_split[i];
+      if (lowercase.indexOf(n) == -1) continue;
+      if (n in obj) {
+                      obj[n] += n;
+      } else {
+                      obj[n] = n;
+      }
+    }
+    return obj;
   }
 
-  var s1_letters = findLetters(s1);
-  var s2_letters = findLetters(s2);
+  function union(o1, o2) {
+    var final_o = {}
 
-  console.log(final_o);
+    for (var k in o1) {
+      if (o1[k].length > 1) final_o[k] = 1;
+    }
+
+    for (var k in o2) {
+      if (o2[k].length > 1) {
+          if (o2.hasOwnProperty(k) && o2[k].length > o1[k].length) final_o[k] = 2;
+          else if (o2.hasOwnProperty(k) && o2[k].length == o1[k].length) final_o[k] = "=";
+          else final_o[k] = 2;
+      }
+    }
+
+    for (var k in final_o) {
+      switch (final_o[k]) {
+        case "=":
+          final_o[k] = o1[k];
+          break;
+        case 1:
+          final_o[k] = o1[k];
+          break;
+        case 2:
+          final_o[k] = o2[k];
+          break;
+      }
+    }
+  }
+
+  var union = union(findLetters(s1), findLetters(s2));
+
+  //console.log(s1_letters, s2_letters);
 }
+
+mix("Are they here", "yes, they are here")
